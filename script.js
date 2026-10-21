@@ -13,19 +13,6 @@ if (counter) {
   }).observe(counter);
 }
 
-function wire(formId, resultId, render) {
-  const form = document.getElementById(formId);
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const out = document.getElementById(resultId);
-    out.innerHTML = render(Object.fromEntries(new FormData(form)));
-    out.classList.remove('hidden');
-  });
-}
-
-wire('impact-quiz', 'impact-result', () => 'Result placeholder.');
-
 // Team matcher
 const ROLES = {
   partnership: ['Nonprofit Partnership', 'Brings in new nonprofit projects: reviews applications, meets with potential partners about their product needs, and develops proposals.'],
@@ -143,4 +130,56 @@ if (startBtn) {
     const opts = stage.querySelectorAll('.q-opt');
     if (/^[1-9]$/.test(e.key) && opts[+e.key - 1]) pick(opts[+e.key - 1]);
   });
+}
+
+// Home scroll effects
+if (document.querySelector('.hero-fx')) {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Replay reveal animations in both scroll directions
+  const reveal = new IntersectionObserver(entries => entries.forEach(e =>
+    e.target.classList.toggle('in', e.isIntersecting)), {threshold: 0.15});
+  document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+
+  // Pie chart sweeps in
+  const pie = document.querySelector('[data-pie]');
+  if (pie) {
+    const target = +pie.dataset.pie;
+    pie.style.background = 'conic-gradient(var(--teal) 0 0%, #d9dee8 0% 100%)';
+    new IntersectionObserver((e, o) => {
+      if (!e[0].isIntersecting) return;
+      o.disconnect();
+      let p = 0;
+      const t = setInterval(() => {
+        p = Math.min(p + 1, target);
+        pie.style.background = `conic-gradient(var(--teal) 0 ${p}%, #d9dee8 ${p}% 100%)`;
+        if (p >= target) clearInterval(t);
+      }, 15);
+    }).observe(pie);
+  }
+
+  const threads = document.querySelectorAll('.thread');
+  const video = document.querySelector('.video-scale');
+  const para = document.querySelectorAll('[data-parallax]');
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  function update() {
+    const y = scrollY, vh = innerHeight;
+    if (reduce) return;
+    para.forEach(el => {
+      const hero = el.closest('.hero-fx');
+      const offset = hero ? y : el.getBoundingClientRect().top + el.offsetHeight / 2 - vh / 2;
+      el.style.translate = `0 ${offset * el.dataset.parallax}px`;
+    });
+    threads.forEach(t => {
+      const tr = t.getBoundingClientRect();
+      t.querySelector('.timeline-fill').style.height = clamp((vh * 0.65 - tr.top) / tr.height, 0, 1) * 100 + '%';
+    });
+    const vr = video.getBoundingClientRect();
+    video.style.transform = `scale(${0.8 + 0.2 * clamp((vh - vr.top) / (vh * 0.7), 0, 1)})`;
+  }
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); } }, {passive: true});
+  addEventListener('resize', update);
+  update();
 }
