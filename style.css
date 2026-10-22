@@ -209,8 +209,9 @@ footer p{max-width:700px;margin:.4rem auto}
 
 #projects .project-logo {
   display: block;
-  width: 100%;
-  height: 160px;
+  width: 130px;
+  height: 80px;
+  max-width: 100%;
   object-fit: contain;
   margin: 0 auto 1.25rem;
 }
