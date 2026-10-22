@@ -23,6 +23,15 @@ const ROLES = {
   operations: ['Operations', 'Events and logistics: managing finances, member management and recruitment, or planning events that bring the community closer together.'],
   brand: ['Brand', 'Drives engagement through creative visual content creation and promotion of the Bits of Good brand.']
 };
+const MAJORS = {
+  partnership: 'Business, IE, LMC',
+  design: 'CS, LMC, Business',
+  marketing: 'Business, LMC',
+  engineering: 'CS, CmpE',
+  product: 'CS, IE, Business',
+  operations: 'IE, Business',
+  brand: 'LMC, Business'
+};
 const QUESTIONS = [
   ['What sounds like the best way to spend an afternoon?', [
     ['Building a feature and watching it work', 'engineering'],
@@ -56,8 +65,30 @@ const QUESTIONS = [
 const startBtn = document.getElementById('quiz-start');
 const teamList = document.getElementById('team-list');
 if (teamList) {
-  teamList.innerHTML = Object.values(ROLES)
-    .map(r => `<div class="card"><h3>${r[0]}</h3><p>${r[1]}</p></div>`).join('');
+  const roles = Object.values(ROLES);
+  const hint = 'Hover over a team to see what it does.';
+  const keys = Object.keys(ROLES);
+  teamList.innerHTML = roles.map((r, i) => {
+    const a = (i / roles.length) * 2 * Math.PI;
+    const right = Math.sin(a) >= 0, w = 150;
+    const arc = y => `M0,${y} H${w}`;
+    const line = (id, y, cls, txt) => `<path id="${id}" d="${arc(y)}" fill="none"/><text class="${cls}" text-anchor="${right ? 'start' : 'end'}"><textPath href="#${id}" startOffset="${right ? '0%' : '100%'}">${txt}</textPath></text>`;
+    const svg = `<svg class="team-majors ${right ? 'r' : 'l'}" width="${w}" height="48" viewBox="0 0 ${w} 48" aria-hidden="true">${line(`mj${i}a`, 18, 'mj-h', 'Popular majors')}${line(`mj${i}b`, 34, 'mj-t', MAJORS[keys[i]])}</svg>`;
+    return `<button type="button" class="team-node" style="left:${50 + 38 * Math.sin(a)}%;top:${50 - 38 * Math.cos(a)}%">${r[0]}${svg}<span class="team-majors-m">Popular majors: ${MAJORS[keys[i]]}</span></button>`;
+  }).join('') + `<div class="team-pop" aria-live="polite"><p class="team-hint">${hint}</p></div>`;
+  const pop = teamList.querySelector('.team-pop');
+  const nodes = teamList.querySelectorAll('.team-node');
+  const show = i => {
+    nodes.forEach((n, j) => n.classList.toggle('on', i === j));
+    pop.innerHTML = i === null ? `<p class="team-hint">${hint}</p>` : `<h3>${roles[i][0]}</h3><p>${roles[i][1]}</p>`;
+    pop.classList.remove('pop-in'); void pop.offsetWidth; if (i !== null) pop.classList.add('pop-in');
+  };
+  nodes.forEach((n, i) => {
+    n.addEventListener('mouseenter', () => show(i));
+    n.addEventListener('focus', () => show(i));
+    n.addEventListener('click', () => show(i));
+  });
+  teamList.addEventListener('mouseleave', () => show(null));
 }
 
 if (startBtn) {
