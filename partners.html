@@ -1,11 +1,128 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Our Partners | Bits of Good @ Georgia Tech</title><link rel="stylesheet" href="style.css"></head>
-<body><header><nav><a class="brand" href="index.html">Bits of Good · Georgia Tech</a><a href="index.html">Home</a><a href="get-involved.html">Get Involved</a><a href="why-sdg8.html">Why SDG 8?</a><a href="partners.html" class="active">Our Partners</a></nav></header>
-<div class="hero"><h1>Page heading placeholder</h1><p>Placeholder subheading text.</p></div>
-<main><section><div class="grid"><div class="card"><h3>Partner name</h3><p>Placeholder text.</p></div><div class="card"><h3>Partner name</h3><p>Placeholder text.</p></div><div class="card"><h3>Partner name</h3><p>Placeholder text.</p></div></div></section></main>
-<footer>
-<p>This website is not an official website for Bits of Good at Georgia Tech. Some phrasing, images, and project descriptions are pulled from their real website: <a href="https://bitsofgood.org/">bitsofgood.org</a></p>
-<p>Project members: Thomas Dean, Karan Jaitly, Eileen Chen, Nabhan Sophie</p>
-</footer>
-<script src="script.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Bits of Good projects with Helping Mamas, Heart of Passion, and Georgia CORE, and discover how Georgia Tech students can contribute.">
+  <title>Our Partners | Bits of Good @ Georgia Tech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="partners-page">
+  <a class="partners-skip" href="#main-content">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="index.html">Bits of Good · Georgia Tech</a>
+      <a href="index.html">Home</a>
+      <a href="get-involved.html">Get Involved</a>
+      <a href="why-sdg8.html">Why SDG 8?</a>
+      <a href="partners.html" class="active" aria-current="page">Our Partners</a>
+    </nav>
+  </header>
+
+  <div class="hero partners-hero">
+    <div class="partners-hero-inner">
+      <span class="tag">Community partnerships</span>
+      <h1>Our partners.<br><span>Shared purpose.</span></h1>
+      <p>Behind every project is a community need. Together with nonprofits, we turn those needs into useful software.</p>
+      <a class="partners-hero-link" href="#partner-stories">Meet the partners <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+    <section class="partners-intro" id="partner-stories" aria-labelledby="stories-heading">
+      <div>
+        <p class="partners-eyebrow">From the Bits of Good project archive</p>
+        <h2 id="stories-heading">Local needs. Practical solutions.</h2>
+      </div>
+      <p>Our partners bring knowledge of their communities. Our student teams bring design, engineering, and product skills. These three projects show how that collaboration can support the everyday work behind a nonprofit’s mission.</p>
+      <ul class="partner-jumps" aria-label="Jump to a partner">
+        <li><a href="#helping-mamas"><span>01</span> Helping Mamas <span aria-hidden="true">↘</span></a></li>
+        <li><a href="#heart-of-passion"><span>02</span> Heart of Passion <span aria-hidden="true">↘</span></a></li>
+        <li><a href="#georgia-core"><span>03</span> Georgia CORE <span aria-hidden="true">↘</span></a></li>
+      </ul>
+    </section>
+
+    <section class="partner-story partner-mamas" id="helping-mamas" aria-labelledby="mamas-heading">
+      <div class="partner-identity">
+        <span class="partner-number" aria-hidden="true">01 /</span>
+        <div class="partner-logo"><img src="images/helping-mamas.png" alt="Helping Mamas Atlanta logo" width="554" height="554"></div>
+        <p class="partner-discipline">Volunteer coordination</p>
+        <p class="partner-caption">Making it easier to lend a hand.</p>
+      </div>
+      <div class="partner-copy">
+        <h2 id="mamas-heading">Helping Mamas</h2>
+        <p>Helping Mamas provides diapers, period products, and baby supplies to families. Volunteers sort donations and prepare items for distribution, making their time essential to the organization’s work.</p>
+        <h3>Built around the need</h3>
+        <p>Our project focused on coordinating that volunteer effort. The platform’s design brings together event registration, shift calendars, volunteer records, and attendance tracking, giving organizers and volunteers a shared place to manage participation.</p>
+        <h3>Why it matters</h3>
+        <p>Clear sign-ups and organized records can make service easier to coordinate. For students, the project connects interface and database decisions to the people using them.</p>
+        <p class="partner-sources">Sources: <a href="https://bitsofgood.org/projects/helping-mamas/">Project details</a> · <a href="https://www.helpingmamas.org/">Helping Mamas</a></p>
+      </div>
+    </section>
+
+    <section class="partner-story partner-passion" id="heart-of-passion" aria-labelledby="passion-heading">
+      <div class="partner-identity">
+        <span class="partner-number" aria-hidden="true">02 /</span>
+        <div class="partner-logo"><img src="images/heart-of-passion.png" alt="Heart of Passion logo" width="400" height="500" loading="lazy"></div>
+        <p class="partner-discipline">Planning &amp; budgeting</p>
+        <p class="partner-caption">Supporting the people behind the retreat.</p>
+      </div>
+      <div class="partner-copy">
+        <h2 id="passion-heading">Heart of Passion</h2>
+        <p>Heart of Passion brings teens affected by cancer together through retreats. Behind those experiences are chapter leaders coordinating activities, donations, and budgets across many moving parts.</p>
+        <h3>Built around the need</h3>
+        <p>Our project brings retreat planning and finances into one interface. Its documented design includes chapter budgets, donation tracking, and an itinerary calendar, with access for both individual chapters and administrators.</p>
+        <h3>Why it matters</h3>
+        <p>A shared view of plans and funding can support more informed decisions. Students encounter a practical product challenge: making a tool useful for people with different responsibilities.</p>
+        <p class="partner-sources">Source: <a href="https://bitsofgood.org/projects/heart-of-passion">Bits of Good’s project and partner profile</a></p>
+      </div>
+    </section>
+
+    <section class="partner-story partner-core" id="georgia-core" aria-labelledby="core-heading">
+      <div class="partner-identity">
+        <span class="partner-number" aria-hidden="true">03 /</span>
+        <div class="partner-logo"><img src="images/gacore-logo-2020-md.png" alt="Georgia CORE logo" width="219" height="121" loading="lazy"></div>
+        <p class="partner-discipline">Resource navigation</p>
+        <p class="partner-caption">Helping people find their next step.</p>
+      </div>
+      <div class="partner-copy">
+        <h2 id="core-heading">Georgia CORE</h2>
+        <p>Georgia CORE connects research, education, and advocacy to improve cancer care across Georgia. Its website serves people with different questions, including patients, survivors, and caregivers.</p>
+        <h3>Built around the need</h3>
+        <p>Our team developed navigation cards and user flows to help visitors locate relevant information. The project also addressed administrative tools, with the goal of reducing the burden of routine website assistance on staff.</p>
+        <h3>Why it matters</h3>
+        <p>Information is more useful when people can find it. This project shows students why understandable labels and thoughtful navigation matter alongside the code behind a website.</p>
+        <p class="partner-sources">Sources: <a href="https://bitsofgood.org/projects/georgia-core">Project details</a> · <a href="https://www.georgiacancerinfo.org/">Georgia CORE</a></p>
+      </div>
+    </section>
+
+    <section class="partners-connection" aria-labelledby="connection-heading">
+      <div>
+        <p class="partners-eyebrow">Skills with a purpose</p>
+        <h2 id="connection-heading">What these partnerships make possible</h2>
+      </div>
+      <div>
+        <p>We see these partnerships as a contribution to economic and social sustainability: students practice collaboration and problem-solving while nonprofits gain tools designed around their needs.</p>
+        <p>This connects to <a href="https://sdgs.un.org/goals/goal8">SDG 8’s focus on productive employment and decent work</a>. Project work gives students a setting to practice skills used in the workplace. The community’s needs give that learning a purpose beyond a portfolio.</p>
+      </div>
+    </section>
+
+    <section class="partners-action" aria-labelledby="action-heading">
+      <div>
+        <p class="partners-eyebrow">Your next step</p>
+        <h2 id="action-heading">Find your place on a project.</h2>
+        <p>Explore roles in design, engineering, product, and more through our team quiz. You can also contribute directly: Helping Mamas lists volunteer opportunities to sort and prepare supplies.</p>
+      </div>
+      <div class="partner-actions">
+        <a class="btn" href="get-involved.html">Explore our teams <span aria-hidden="true">→</span></a>
+        <a href="https://www.helpingmamas.org/volunteer">Volunteer with Helping Mamas <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>This website is not an official website for Bits of Good at Georgia Tech. Some phrasing, images, and project descriptions are pulled from their real website: <a href="https://bitsofgood.org/">bitsofgood.org</a></p>
+    <p>Project members: Thomas Dean, Karan Jaitly, Eileen Chen, Nabhan Sophie</p>
+  </footer>
+</body>
+</html>
