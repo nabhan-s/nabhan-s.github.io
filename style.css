@@ -258,3 +258,23 @@ footer p{max-width:700px;margin:.4rem auto}
 .about-photo img{display:block;width:100%;flex:1 1 0;min-height:300px;object-fit:cover;object-position:center 45%;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .about-photo figcaption{color:var(--muted);font-size:.9rem;margin-top:.4rem;text-align:center}
 @media (max-width:700px){.about-grid{grid-template-columns:1fr}.about-photo img{flex:none;aspect-ratio:4/3;min-height:0}}
+
+/* SDG page: contribution cycle */
+.cycle{display:grid;grid-template-columns:minmax(0,400px) 1fr;gap:2.5rem;align-items:center;margin-top:1.5rem}
+.cycle-ring{width:100%;height:auto;overflow:visible}
+.cycle-track{fill:none;stroke:#d9dee8;stroke-width:2;stroke-dasharray:4 8}
+.cycle-arc{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;stroke-dasharray:14 10;animation:cycleflow 1.2s linear infinite}
+@keyframes cycleflow{to{stroke-dashoffset:-24}}
+.cycle-center{text-anchor:middle;font-size:22px;font-weight:800;fill:var(--navy)}
+.cycle-node text{text-anchor:middle;fill:#fff;font-weight:800;font-size:26px}
+.cycle-node .cycle-label{font-size:14px;font-weight:700}
+.n1 circle{fill:#c58b00}.n2 circle{fill:var(--teal)}.n3 circle{fill:var(--navy)}
+.cycle-steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.cycle-steps li{background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.08);padding:1rem 1.25rem;border-left:6px solid}
+.cycle-steps h3{margin:0 0 .3rem;font-size:1.1rem}
+.cycle-steps p{margin:0}
+.cycle-steps .s1{border-color:#c58b00}.cycle-steps .s1 h3{color:#9a6b00}
+.cycle-steps .s2{border-color:var(--teal)}.cycle-steps .s2 h3{color:var(--teal)}
+.cycle-steps .s3{border-color:var(--navy)}.cycle-steps .s3 h3{color:var(--navy)}
+@media (max-width:760px){.cycle{grid-template-columns:1fr}.cycle-ring{max-width:340px;margin:auto}}
+@media (prefers-reduced-motion:reduce){.cycle-arc{animation:none}}
