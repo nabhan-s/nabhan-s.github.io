@@ -30,6 +30,7 @@ h2{color:var(--navy);margin-bottom:.25rem}
 .legend{font-size:.9rem;color:var(--muted)}
 .video{aspect-ratio:16/9;background:var(--navy);color:#fff;display:grid;place-items:center;text-align:center}
 .video iframe{width:100%;height:100%;border:0}
+.video-caption{text-align:center;color:var(--muted);font-size:1.05rem;margin-top:1rem}
 .quiz fieldset{border:0;padding:0;margin:0 0 1rem}
 .quiz legend{font-weight:700;margin-bottom:.4rem}
 .quiz label{display:block;padding:.45rem .7rem;border:1px solid #d9dee8;margin:.3rem 0;cursor:pointer;background:#fff}
