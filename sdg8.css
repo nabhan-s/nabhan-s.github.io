@@ -15,7 +15,7 @@
 .sdg-text-link span{margin-left:.5rem}
 .sdg-skip{position:fixed;top:.5rem;left:1rem;z-index:200;padding:.75rem 1rem;background:var(--gold);color:var(--navy);transform:translateY(-200%);font-weight:700}
 .sdg-skip:focus{transform:none}
-.sdg-hero{background:var(--navy);color:#fff;padding:3.5rem 2rem 0}
+.sdg-hero{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:3.5rem 2rem 0}
 .sdg-hero-inner{max-width:1056px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
 .sdg-hero .sdg-eyebrow{color:var(--sdg-mint)}
 .sdg-hero h1{font-size:clamp(3rem,5.8vw,4.8rem);font-weight:750;line-height:1.04;letter-spacing:-.055em;margin:0 0 1.5rem}
